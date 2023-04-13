@@ -15,6 +15,12 @@ func main() {
 		log.Fatalln("")
 		return
 	}
+	//prepare database table
+	err = database.PrepareDB(db)
+	if err != nil {
+		log.Fatalln("error prepare DB, error : ", err)
+		return
+	}
 
 	activityRepository := repository.NewActivityRepository()
 	activityService := service.NewActivityService(activityRepository, db)

@@ -1,0 +1,1438 @@
+{
+	"info": {
+		"_postman_id": "2240c640-55a9-4d21-82a5-0234180e7e6e",
+		"name": "golang-todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Activity",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3030/activity-groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"activity-groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Succes with list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/activity-groups",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 07:53:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1514"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Success\",\n    \"Data\": [\n        {\n            \"id\": 4,\n            \"title\": \"0\",\n            \"email\": \"hahahihi\",\n            \"createdAt\": \"2023-04-12T11:54:15Z\",\n            \"updatedAt\": \"2023-04-12T11:54:15Z\"\n        },\n        {\n            \"id\": 6,\n            \"title\": \"1\",\n            \"email\": \"1\",\n            \"createdAt\": \"2023-04-12T11:50:42Z\",\n            \"updatedAt\": \"2023-04-12T11:50:47Z\"\n        },\n        {\n            \"id\": 8,\n            \"title\": \"0\",\n            \"email\": \"hahahihi\",\n            \"createdAt\": \"2023-04-12T12:32:09Z\",\n            \"updatedAt\": \"2023-04-12T12:32:09Z\"\n        },\n        {\n            \"id\": 9,\n            \"title\": \"haha\",\n            \"email\": \"hahahihi\",\n            \"createdAt\": \"2023-04-12T12:32:44Z\",\n            \"updatedAt\": \"2023-04-12T12:32:44Z\"\n        },\n        {\n            \"id\": 10,\n            \"title\": \"haha\",\n            \"email\": \"hahahihi\",\n            \"createdAt\": \"2023-04-12T12:39:36Z\",\n            \"updatedAt\": \"2023-04-12T12:39:36Z\"\n        },\n        {\n            \"id\": 11,\n            \"title\": \"haha\",\n            \"email\": \"hahahihi\",\n            \"createdAt\": \"2023-04-12T12:44:55Z\",\n            \"updatedAt\": \"2023-04-12T12:44:55Z\"\n        },\n        {\n            \"id\": 12,\n            \"title\": \"makan - ah\",\n            \"email\": \"hahahihi\",\n            \"createdAt\": \"2023-04-12T12:45:06Z\",\n            \"updatedAt\": \"2023-04-12T14:30:04Z\"\n        },\n        {\n            \"id\": 13,\n            \"title\": \"makan\",\n            \"email\": \"minum\",\n            \"createdAt\": \"2023-04-12T13:22:10Z\",\n            \"updatedAt\": \"2023-04-12T13:22:10Z\"\n        },\n        {\n            \"id\": 14,\n            \"title\": \"makan\",\n            \"email\": \"minum\",\n            \"createdAt\": \"2023-04-12T13:22:21Z\",\n            \"updatedAt\": \"2023-04-12T13:22:21Z\"\n        },\n        {\n            \"id\": 15,\n            \"title\": \"haha\",\n            \"email\": \"hahahihi\",\n            \"createdAt\": \"0001-01-01T00:00:00Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": 16,\n            \"title\": \"haha\",\n            \"email\": \"hahahihi\",\n            \"createdAt\": \"0001-01-01T00:00:00Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": 18,\n            \"title\": \"makan\",\n            \"email\": \"minum\",\n            \"createdAt\": \"2023-04-12T13:39:36Z\",\n            \"updatedAt\": \"2023-04-12T13:39:36Z\"\n        },\n        {\n            \"id\": 19,\n            \"title\": \"makan - ah\",\n            \"email\": \"minum\",\n            \"createdAt\": \"2023-04-12T13:48:08Z\",\n            \"updatedAt\": \"2023-04-12T14:26:00Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3030/activity-groups/29",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"activity-groups",
+								"29"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Activity Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/activity-groups/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 08:16:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "157"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Success\",\n    \"Data\": {\n        \"id\": 4,\n        \"title\": \"0\",\n        \"email\": \"hahahihi\",\n        \"createdAt\": \"2023-04-12T11:54:15Z\",\n        \"updatedAt\": \"2023-04-12T11:54:15Z\"\n    }\n}"
+						},
+						{
+							"name": "400 - Error Bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/activity-groups/qwe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups",
+										"qwe"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 09:32:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Invalid ID Parameter\",\n    \"Message\": \"ID qwe not valid\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "404 - Activity Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/activity-groups/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 09:33:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Not Found\",\n    \"Message\": \"Activity with ID 1 Not Found\",\n    \"Data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"test\",\r\n    \"email\": \"test@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3030/activity-groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"activity-groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 - Invalid Body Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": 1,\r\n    \"email\": \"test@mail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/activity-groups",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 09:35:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Bad Request\",\n    \"Message\": \"Invalid request body\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "200 - Success Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"test\",\r\n    \"email\": \"test@mail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/activity-groups",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 13 Apr 2023 05:00:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "166"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Success\",\n    \"Data\": {\n        \"id\": 33,\n        \"title\": \"test\",\n        \"email\": \"test@mail.com\",\n        \"createdAt\": \"2023-04-13T12:00:25Z\",\n        \"updatedAt\": \"2023-04-13T12:00:25Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"testing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3030/activity-groups/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"activity-groups",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404 - Activity Not Found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"testing\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/activity-groups/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 09:34:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Not Found\",\n    \"Message\": \"Activity with ID 1 Not Found\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "400 - Invalid ID Parameter",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"testing\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/activity-groups/asd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups",
+										"asd"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 09:34:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Invalid ID Parameter\",\n    \"Message\": \"ID asd not valid\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "200 - Success Update Activity",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"testing\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/activity-groups/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 13 Apr 2023 05:23:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "163"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Success\",\n    \"Data\": {\n        \"id\": 4,\n        \"title\": \"testing\",\n        \"email\": \"hahahihi\",\n        \"createdAt\": \"2023-04-12T11:54:15Z\",\n        \"updatedAt\": \"2023-04-13T12:23:22Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3030/activity-groups/19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"activity-groups",
+								"19"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404 - Actvity Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/activity-groups/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 09:37:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Not Found\",\n    \"Message\": \"Activity with ID 1 Not Found\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "400 - ID Invalid",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/activity-groups/1q",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups",
+										"1q"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 09:39:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Invalid ID Parameter\",\n    \"Message\": \"ID 1q not valid\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "200 - Succes Delete Activity",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/activity-groups/19",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"activity-groups",
+										"19"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 09:43:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Activity with ID 19 has been deleted\",\n    \"Data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "todo",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3030/todo-items?activity_group_id=15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"todo-items"
+							],
+							"query": [
+								{
+									"key": "activity_group_id",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Success Get All Todo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/todo-items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 15:46:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2211"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Success\",\n    \"Data\": [\n        {\n            \"id\": 8,\n            \"activity_group_id\": 4,\n            \"title\": \"ok lah\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:06:58Z\",\n            \"updatedAt\": \"2023-04-12T22:06:58Z\"\n        },\n        {\n            \"id\": 9,\n            \"activity_group_id\": 4,\n            \"title\": \"ok lah lagi\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:07:34Z\",\n            \"updatedAt\": \"2023-04-12T22:07:34Z\"\n        },\n        {\n            \"id\": 10,\n            \"activity_group_id\": 10,\n            \"title\": \"ok lah lagi 1x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:15:37Z\",\n            \"updatedAt\": \"2023-04-12T22:15:37Z\"\n        },\n        {\n            \"id\": 11,\n            \"activity_group_id\": 4,\n            \"title\": \"ok lah lagi 1x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:18:09Z\",\n            \"updatedAt\": \"2023-04-12T22:18:09Z\"\n        },\n        {\n            \"id\": 12,\n            \"activity_group_id\": 10,\n            \"title\": \"ok lah lagi 1x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:19:06Z\",\n            \"updatedAt\": \"2023-04-12T22:19:06Z\"\n        },\n        {\n            \"id\": 14,\n            \"activity_group_id\": 4,\n            \"title\": \"ok lah lagi 2x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:31:18Z\",\n            \"updatedAt\": \"2023-04-12T22:31:18Z\"\n        },\n        {\n            \"id\": 15,\n            \"activity_group_id\": 22,\n            \"title\": \"ok lah lagi 2x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:31:58Z\",\n            \"updatedAt\": \"2023-04-12T22:31:58Z\"\n        },\n        {\n            \"id\": 16,\n            \"activity_group_id\": 23,\n            \"title\": \"ok lah lagi 2x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:32:02Z\",\n            \"updatedAt\": \"2023-04-12T22:32:02Z\"\n        },\n        {\n            \"id\": 17,\n            \"activity_group_id\": 4,\n            \"title\": \"ok lah lagi 2x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:32:06Z\",\n            \"updatedAt\": \"2023-04-12T22:32:06Z\"\n        },\n        {\n            \"id\": 18,\n            \"activity_group_id\": 10,\n            \"title\": \"ok lah lagi 2x\",\n            \"is_active\": true,\n            \"priority\": \"very-low\",\n            \"createdAt\": \"2023-04-12T22:39:29Z\",\n            \"updatedAt\": \"2023-04-12T22:39:29Z\"\n        },\n        {\n            \"id\": 19,\n            \"activity_group_id\": 15,\n            \"title\": \"ok lah lagi 2x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:40:19Z\",\n            \"updatedAt\": \"2023-04-12T22:40:19Z\"\n        },\n        {\n            \"id\": 20,\n            \"activity_group_id\": 15,\n            \"title\": \"ok lah lagi 2x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:40:30Z\",\n            \"updatedAt\": \"2023-04-12T22:40:30Z\"\n        },\n        {\n            \"id\": 21,\n            \"activity_group_id\": 16,\n            \"title\": \"ok lah lagi 3x\",\n            \"is_active\": true,\n            \"priority\": \"medium\",\n            \"createdAt\": \"2023-04-12T22:42:30Z\",\n            \"updatedAt\": \"2023-04-12T22:42:30Z\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200 - Success Get Todo with Param Act ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/todo-items?activity_group_id=15",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items"
+									],
+									"query": [
+										{
+											"key": "activity_group_id",
+											"value": "15"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 15:56:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "385"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Success\",\n    \"Data\": [\n        {\n            \"id\": 19,\n            \"activity_group_id\": 15,\n            \"title\": \"ok lah lagi 2x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:40:19Z\",\n            \"updatedAt\": \"2023-04-12T22:40:19Z\"\n        },\n        {\n            \"id\": 20,\n            \"activity_group_id\": 15,\n            \"title\": \"ok lah lagi 2x\",\n            \"is_active\": true,\n            \"priority\": \"very-high\",\n            \"createdAt\": \"2023-04-12T22:40:30Z\",\n            \"updatedAt\": \"2023-04-12T22:40:30Z\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "400 - Invalid ID Parameter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/todo-items?activity_group_id=asd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items"
+									],
+									"query": [
+										{
+											"key": "activity_group_id",
+											"value": "asd"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 16:17:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Invalid ID Parameter\",\n    \"Message\": \"ID asd not valid\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "404 - Data Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/todo-items?activity_group_id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items"
+									],
+									"query": [
+										{
+											"key": "activity_group_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 16:17:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Not Found\",\n    \"Message\": \"Activity with ID 1 Not Found\",\n    \"Data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3030/todo-items/aa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"todo-items",
+								"aa"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404 - Todo Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/todo-items/82",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items",
+										"82"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 16:06:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Not Found\",\n    \"Message\": \"Todo with ID 82 Not Found\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "200 - Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/todo-items/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 16:06:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "205"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Success\",\n    \"Data\": {\n        \"id\": 8,\n        \"activity_group_id\": 4,\n        \"title\": \"ok lah\",\n        \"is_active\": true,\n        \"priority\": \"very-high\",\n        \"createdAt\": \"2023-04-12T22:06:58Z\",\n        \"updatedAt\": \"2023-04-12T22:06:58Z\"\n    }\n}"
+						},
+						{
+							"name": "400 - Invalid ID Parameter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/todo-items/aa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items",
+										"aa"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 16:18:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Invalid ID Parameter\",\n    \"Message\": \"ID aa not valid\",\n    \"Data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"ok lah lagi 4x\",\r\n    \"activity_group_id\": 15,\r\n    \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3030/todo-items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"todo-items"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 - Invalid Body Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"ok lah lagi 3x\",\r\n    \"activity_group_id\": \"15\",\r\n    \"priority\": \"medium\",\r\n    \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/todo-items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 16:28:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Bad Request\",\n    \"Message\": \"Invalid request body\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "404 - Priority Doesn't Exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"ok lah lagi 3x\",\r\n    \"activity_group_id\": 15,\r\n    \"priority\": \"mediu\",\r\n    \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/todo-items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 16:34:17 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Not Found\",\n    \"Message\": \"Priority mediu doesn't exists\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "200 - Success Create Todo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"ok lah lagi 4x\",\r\n    \"activity_group_id\": 15,\r\n    \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/todo-items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 13 Apr 2023 05:10:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "215"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Success\",\n    \"Data\": {\n        \"id\": 26,\n        \"activity_group_id\": 15,\n        \"title\": \"ok lah lagi 4x\",\n        \"is_active\": true,\n        \"priority\": \"very-high\",\n        \"createdAt\": \"2023-04-13T12:10:33Z\",\n        \"updatedAt\": \"2023-04-13T12:10:33Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"23\",\r\n    \"priority\": \"low\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3030/todo-items/19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"todo-items",
+								"19"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 - Invalid Body Request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"23\",\r\n    \"priority\": \"medium\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/todo-items/19",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items",
+										"19"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 18:13:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Bad Request\",\n    \"Message\": \"Invalid request body\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "404 - ID Nor Found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"23\",\r\n    \"priority\": \"medium\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/todo-items/192",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items",
+										"192"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 18:18:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Not Found\",\n    \"Message\": \"Todo with ID 192 Not Found\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "200 - Susccess update Todo",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"23\",\r\n    \"priority\": \"low\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3030/todo-items/19",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items",
+										"19"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 13 Apr 2023 05:26:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "198"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Success\",\n    \"Data\": {\n        \"id\": 19,\n        \"activity_group_id\": 15,\n        \"title\": \"23\",\n        \"is_active\": false,\n        \"priority\": \"low\",\n        \"createdAt\": \"2023-04-12T22:40:19Z\",\n        \"updatedAt\": \"2023-04-13T12:26:56Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3030/todo-items/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"todo-items",
+								"8"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404 - Todo ID Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/todo-items/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 16:48:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Not Found\",\n    \"Message\": \"Todo with ID 1 Not Found\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "400 - Invalid Todo ID",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/todo-items/as",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items",
+										"as"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 16:49:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Invalid ID Parameter\",\n    \"Message\": \"Todo ID as not valid\",\n    \"Data\": null\n}"
+						},
+						{
+							"name": "200 - Success Delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3030/todo-items/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"todo-items",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 12 Apr 2023 16:50:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Message\": \"Todo with ID 8 has been deleted\",\n    \"Data\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
