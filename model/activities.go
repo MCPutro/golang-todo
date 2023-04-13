@@ -2,7 +2,7 @@ package model
 
 import "time"
 
-type Activities struct {
+type Activity struct {
 	Activity_id int       `json:"id"`
 	Title       string    `json:"title"`
 	Email       string    `json:"email"`

@@ -18,13 +18,14 @@ func NewActivityService(repo repository.ActivityRepository, db *sql.DB) Activity
 	return &activityServiceImpl{repo: repo, db: db}
 }
 
-func (a *activityServiceImpl) Create(ctx context.Context, req *model.Activities) (*model.Activities, error) {
+func (a *activityServiceImpl) Create(ctx context.Context, req *model.Activity) (*model.Activity, error) {
 	//set created and update time to now
+	now := time.Now()
 	if req.Created_at.IsZero() {
-		req.Created_at = time.Now()
+		req.Created_at = now
 	}
 	if req.Updated_at.IsZero() {
-		req.Updated_at = time.Now()
+		req.Updated_at = now
 	}
 
 	//begin db transaction
@@ -46,7 +47,7 @@ func (a *activityServiceImpl) Create(ctx context.Context, req *model.Activities)
 	return activitySave, nil
 }
 
-func (a *activityServiceImpl) Update(ctx context.Context, req *model.Activities) (*model.Activities, error) {
+func (a *activityServiceImpl) Update(ctx context.Context, req *model.Activity) (*model.Activity, error) {
 	//begin db transaction
 	tx, err := a.db.Begin()
 	if err != nil {
@@ -67,18 +68,16 @@ func (a *activityServiceImpl) Update(ctx context.Context, req *model.Activities)
 	existing.Updated_at = time.Now()
 
 	//call repo to update
-	err = a.repo.Update(ctx, tx, existing)
+	update, err := a.repo.Update(ctx, tx, existing)
 	if err != nil {
 		return nil, err
 	}
 
-	req = existing
-
-	return req, nil
+	return update, nil
 
 }
 
-func (a *activityServiceImpl) FindAll(ctx context.Context) ([]*model.Activities, error) {
+func (a *activityServiceImpl) FindAll(ctx context.Context) ([]*model.Activity, error) {
 	//begin db transaction
 	tx, err := a.db.Begin()
 	if err != nil {
@@ -97,7 +96,7 @@ func (a *activityServiceImpl) FindAll(ctx context.Context) ([]*model.Activities,
 	return activities, nil
 }
 
-func (a *activityServiceImpl) FindById(ctx context.Context, Id int) (*model.Activities, error) {
+func (a *activityServiceImpl) FindById(ctx context.Context, Id int) (*model.Activity, error) {
 	//begin db transaction
 	tx, err := a.db.Begin()
 	if err != nil {

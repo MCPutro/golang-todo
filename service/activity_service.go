@@ -6,9 +6,9 @@ import (
 )
 
 type ActivityService interface {
-	Create(ctx context.Context, req *model.Activities) (*model.Activities, error)
-	Update(ctx context.Context, req *model.Activities) (*model.Activities, error)
-	FindAll(ctx context.Context) ([]*model.Activities, error)
-	FindById(ctx context.Context, Id int) (*model.Activities, error)
+	Create(ctx context.Context, req *model.Activity) (*model.Activity, error)
+	Update(ctx context.Context, req *model.Activity) (*model.Activity, error)
+	FindAll(ctx context.Context) ([]*model.Activity, error)
+	FindById(ctx context.Context, Id int) (*model.Activity, error)
 	Delete(ctx context.Context, id int) error
 }

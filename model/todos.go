@@ -1,11 +1,13 @@
 package model
 
-type Todos struct {
-	todo_id           int    `json:"id"`
-	activity_group_id int    `json:"activity_group_id"`
-	title             string `json:"title"`
-	is_active         bool   `json:"is_active"`
-	priority          string `json:"priority"`
-	created_at        string `json:"createdAt"`
-	updated_at        string `json:"updatedAt"`
+import "time"
+
+type Todo struct {
+	Todo_id           int       `json:"id"`
+	Activity_group_id int       `json:"activity_group_id"`
+	Title             string    `json:"title"`
+	Is_active         bool      `json:"is_active"`
+	Priority          string    `json:"priority"`
+	Created_at        time.Time `json:"createdAt"`
+	Updated_at        time.Time `json:"updatedAt"`
 }
