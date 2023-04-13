@@ -20,4 +20,4 @@ go run main.go
 ```
 
 ## Postman Collection
-Di Proyek ini juga disematkan Collection Postman ([golang-todo.postman_collection.json](golang-todo.postman_collection.json)) yang dapat anda gunakan untuk mencoba API.
+Di Project ini juga disematkan Collection Postman ([golang-todo.postman_collection.json](golang-todo.postman_collection.json)) yang dapat anda gunakan untuk mencoba API.

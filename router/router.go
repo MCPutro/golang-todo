@@ -8,6 +8,8 @@ import (
 func NewRouter(activityController controller.ActivityController, todoController controller.TodoController) *fiber.App {
 	app := fiber.New()
 
+	app.Get("/", activityController.GetAll)
+
 	app.Get("/activity-groups", activityController.GetAll)
 	app.Get("/activity-groups/:ActId", activityController.GetOne)
 	app.Post("/activity-groups", activityController.Create)
