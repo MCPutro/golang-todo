@@ -60,6 +60,13 @@ func (a *activityControllerImpl) Create(c *fiber.Ctx) error {
 		return helper.PrintResponse(c, fiber.StatusBadRequest, "Bad Request", "Invalid request body", nil)
 	}
 
+	if body.Title == "" {
+		return helper.PrintResponse(c, fiber.StatusBadRequest, "Bad Request", "title cannot be null", nil)
+	}
+	if body.Email == "" {
+		return helper.PrintResponse(c, fiber.StatusBadRequest, "Bad Request", "email cannot be null", nil)
+	}
+
 	//call service
 	activity, err := a.service.Create(c.UserContext(), body)
 
@@ -122,5 +129,5 @@ func (a *activityControllerImpl) Delete(c *fiber.Ctx) error {
 			return helper.PrintResponse(c, fiber.StatusInternalServerError, "Internal Server Error", fmt.Sprintf("Failed delete Activity with ID %s", actId), nil)
 		}
 	}
-	return helper.PrintResponse(c, fiber.StatusOK, "Success", fmt.Sprintf("Activity with ID %s has been deleted", actId), nil)
+	return helper.PrintResponse(c, fiber.StatusOK, "Success", "Success", nil)
 }

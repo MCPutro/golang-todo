@@ -14,7 +14,6 @@ func GetInstance() (*sql.DB, error) {
 	var err error
 
 	for i := 0; i < 5; i++ {
-		//db, err := sql.Open("mysql", "root@tcp(localhost:3306)/belajar_golang_restful_api")
 		dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true",
 			config.DbUser, config.DbPass,
 			config.DbHost, config.DbPort, config.DbName)

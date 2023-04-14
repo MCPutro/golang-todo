@@ -19,14 +19,9 @@ func NewActivityService(repo repository.ActivityRepository, db *sql.DB) Activity
 }
 
 func (a *activityServiceImpl) Create(ctx context.Context, req *model.Activity) (*model.Activity, error) {
-	//set created and update time to now
-	now := time.Now()
-	if req.Created_at.IsZero() {
-		req.Created_at = now
-	}
-	if req.Updated_at.IsZero() {
-		req.Updated_at = now
-	}
+	now := time.Now().UTC()
+	req.Created_at = now
+	req.Updated_at = now
 
 	//begin db transaction
 	tx, err := a.db.Begin()
@@ -65,7 +60,7 @@ func (a *activityServiceImpl) Update(ctx context.Context, req *model.Activity) (
 
 	//if activity id is exists
 	existing.Title = req.Title
-	existing.Updated_at = time.Now()
+	existing.Updated_at = time.Now().UTC()
 
 	//call repo to update
 	update, err := a.repo.Update(ctx, tx, existing)

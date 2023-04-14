@@ -6,9 +6,6 @@ import (
 	"errors"
 	"github.com/MCPutro/golang-todo/helper"
 	"github.com/MCPutro/golang-todo/model"
-	"log"
-	"strings"
-	"time"
 )
 
 type todoRepositoryImpl struct {
@@ -23,10 +20,10 @@ func NewTodoRepository() TodoRepository {
 func (t *todoRepositoryImpl) Save(ctx context.Context, tx *sql.Tx, NewTodo *model.Todo) (*model.Todo, error) {
 	SQL := "INSERT INTO todos (activity_group_id, title, priority, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?);"
 
-	createdTime := NewTodo.Created_at.Format(helper.FORMAT_DATE)
-	updatedTime := NewTodo.Updated_at.Format(helper.FORMAT_DATE)
+	//createdTime := NewTodo.Created_at.Format(helper.FORMAT_DATE)
+	//updatedTime := NewTodo.Updated_at.Format(helper.FORMAT_DATE)
 
-	result, err := tx.ExecContext(ctx, SQL, NewTodo.Activity_group_id, NewTodo.Title, NewTodo.Priority, NewTodo.Is_active, createdTime, updatedTime)
+	result, err := tx.ExecContext(ctx, SQL, NewTodo.Activity_group_id, NewTodo.Title, NewTodo.Priority, NewTodo.Is_active, NewTodo.Created_at.UTC(), NewTodo.Updated_at.UTC())
 	if err != nil {
 		return nil, err
 	}
@@ -35,12 +32,12 @@ func (t *todoRepositoryImpl) Save(ctx context.Context, tx *sql.Tx, NewTodo *mode
 		return nil, err
 	}
 
-	//update resp data
+	////update resp data
 	NewTodo.Todo_id = int(id)
-	createdTime2, _ := time.Parse(helper.FORMAT_DATE, createdTime)
-	NewTodo.Created_at = createdTime2
-	updatedTime2, _ := time.Parse(helper.FORMAT_DATE, updatedTime)
-	NewTodo.Updated_at = updatedTime2
+	//createdTime2, _ := time.Parse(helper.FORMAT_DATE, createdTime)
+	//NewTodo.Created_at = createdTime2
+	//updatedTime2, _ := time.Parse(helper.FORMAT_DATE, updatedTime)
+	//NewTodo.Updated_at = updatedTime2
 
 	return NewTodo, nil
 }
@@ -115,20 +112,21 @@ func (t *todoRepositoryImpl) FindByActivityID(ctx context.Context, tx *sql.Tx, I
 		todos = append(todos, &todo)
 	}
 
-	if len(todos) > 0 {
-		return todos, nil
-	} else {
-		return nil, errors.New(helper.NO_DATA_FOUND)
-	}
+	//if len(todos) > 0 {
+	//	return todos, nil
+	//} else {
+	//	return nil, errors.New(helper.NO_DATA_FOUND)
+	//}
+	return todos, nil
 }
 
 func (t *todoRepositoryImpl) Update(ctx context.Context, tx *sql.Tx, Todo *model.Todo) (*model.Todo, error) {
 
 	SQL := "UPDATE todos t SET t.title = ?, t.priority  = ?, t.is_active = ? , t.updated_at = ? WHERE t.todo_id = ?;"
 
-	updatedTime := Todo.Updated_at.Format(helper.FORMAT_DATE)
+	//updatedTime := Todo.Updated_at.Format(helper.FORMAT_DATE)
 
-	_, err := tx.ExecContext(ctx, SQL, Todo.Title, Todo.Priority, Todo.Is_active, updatedTime, Todo.Todo_id)
+	_, err := tx.ExecContext(ctx, SQL, Todo.Title, Todo.Priority, Todo.Is_active, Todo.Updated_at.UTC(), Todo.Todo_id)
 
 	if err != nil {
 		return nil, err
@@ -139,8 +137,8 @@ func (t *todoRepositoryImpl) Update(ctx context.Context, tx *sql.Tx, Todo *model
 	//} else if rowsAffected == 0 {
 	//	return errors.New(helper.NO_DATA_FOUND)
 	//}
-	updatedTime2, _ := time.Parse(helper.FORMAT_DATE, updatedTime)
-	Todo.Updated_at = updatedTime2
+	//updatedTime2, _ := time.Parse(helper.FORMAT_DATE, updatedTime)
+	//Todo.Updated_at = updatedTime2
 
 	return Todo, nil
 }
@@ -162,29 +160,29 @@ func (t *todoRepositoryImpl) Delete(ctx context.Context, tx *sql.Tx, Id int) err
 	return nil
 }
 
-func (t *todoRepositoryImpl) GetPriorityList(ctx context.Context, tx *sql.Tx) (map[string]bool, error) {
-	SQL := "select p.priority_name from priority p where p.is_active = 1 order by priority_id asc ;"
-
-	rows, err := tx.QueryContext(ctx, SQL)
-	if err != nil {
-		return nil, err
-	}
-	defer rows.Close()
-
-	priorityList := make(map[string]bool, 0)
-	for rows.Next() {
-		var priority string
-		if err := rows.Scan(&priority); err != nil {
-			return nil, err
-		}
-		priorityList[strings.ToUpper(priority)] = true
-
-		//set default priority
-		if helper.DEFAULT_PRIORITY == "" {
-			helper.DEFAULT_PRIORITY = priority
-			log.Println("[INFO] set var DEFAULT_PRIORITY to ", helper.DEFAULT_PRIORITY)
-		}
-	}
-
-	return priorityList, nil
-}
+//func (t *todoRepositoryImpl) GetPriorityList(ctx context.Context, tx *sql.Tx) (map[string]bool, error) {
+//	SQL := "select p.priority_name from priority p where p.is_active = 1 order by priority_id asc ;"
+//
+//	rows, err := tx.QueryContext(ctx, SQL)
+//	if err != nil {
+//		return nil, err
+//	}
+//	defer rows.Close()
+//
+//	priorityList := make(map[string]bool, 0)
+//	for rows.Next() {
+//		var priority string
+//		if err := rows.Scan(&priority); err != nil {
+//			return nil, err
+//		}
+//		priorityList[strings.ToUpper(priority)] = true
+//
+//		//set default priority
+//		if helper.DEFAULT_PRIORITY == "" {
+//			helper.DEFAULT_PRIORITY = priority
+//			log.Println("[INFO] set var DEFAULT_PRIORITY to ", helper.DEFAULT_PRIORITY)
+//		}
+//	}
+//
+//	return priorityList, nil
+//}

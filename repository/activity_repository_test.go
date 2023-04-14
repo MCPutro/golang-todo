@@ -3,7 +3,6 @@ package repository
 import (
 	"context"
 	"github.com/DATA-DOG/go-sqlmock"
-	"github.com/MCPutro/golang-todo/helper"
 	"github.com/MCPutro/golang-todo/model"
 	"github.com/stretchr/testify/assert"
 	"testing"
@@ -124,9 +123,6 @@ func TestSaveActivity(t *testing.T) {
 		Updated_at: time.Now(),
 	}
 
-	createdTime := newAct.Created_at.Format(helper.FORMAT_DATE)
-	updatedTime := newAct.Updated_at.Format(helper.FORMAT_DATE)
-
 	//create database mock
 	db, mock, err := sqlmock.New()
 	if err != nil {
@@ -138,7 +134,7 @@ func TestSaveActivity(t *testing.T) {
 
 	// expect insert query
 	mock.ExpectExec(`INSERT INTO activities `).
-		WithArgs(newAct.Title, newAct.Email, createdTime, updatedTime).
+		WithArgs(newAct.Title, newAct.Email, newAct.Created_at, newAct.Updated_at).
 		WillReturnResult(sqlmock.NewResult(2, 1))
 
 	mock.ExpectCommit()

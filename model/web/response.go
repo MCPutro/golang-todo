@@ -1,7 +1,7 @@
 package web
 
 type Response struct {
-	Status  string
-	Message interface{} `json:"Message,omitempty"`
-	Data    interface{} `json:"Data"`
+	Status  string      `json:"status"`
+	Message interface{} `json:"message"`
+	Data    interface{} `json:"data,omitempty"`
 }

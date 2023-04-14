@@ -3,13 +3,9 @@ package service
 import (
 	"context"
 	"database/sql"
-	"errors"
-	"fmt"
 	"github.com/MCPutro/golang-todo/helper"
 	"github.com/MCPutro/golang-todo/model"
 	"github.com/MCPutro/golang-todo/repository"
-	"log"
-	"strings"
 	"sync"
 	"time"
 )
@@ -36,32 +32,12 @@ func (t *todoServiceImpl) Create(ctx context.Context, req *model.Todo) (*model.T
 	//run commit or rollback in last func
 	defer func() { helper.CommitOrRollback(err, tx) }()
 
-	//check activity id
-	_, err = t.actRepo.FindByID(ctx, tx, req.Activity_group_id)
-	if err != nil {
-		return nil, err
-	}
-
-	//get priority list
-	once.Do(func() {
-		log.Println("[INFO] get priority list")
-		helper.PRIORITY_LIST, err = t.repo.GetPriorityList(ctx, tx)
-	})
-	if err != nil {
-		return nil, err
-	}
-
 	//conplete data in req
-	now := time.Now()
+	now := time.Now().UTC()
 	req.Created_at = now
 	req.Updated_at = now
 	if req.Priority == "" {
-		req.Priority = helper.DEFAULT_PRIORITY
-	} else {
-		//check priority
-		if !helper.PRIORITY_LIST[strings.ToUpper(req.Priority)] {
-			return nil, errors.New(fmt.Sprintf("Priority %s doesn't exists", req.Priority))
-		}
+		req.Priority = "very-high"
 	}
 
 	//call repo
@@ -150,7 +126,7 @@ func (t *todoServiceImpl) Update(ctx context.Context, req *model.Todo) (*model.T
 	}
 
 	existing.Todo_id = req.Todo_id
-	existing.Updated_at = time.Now()
+	existing.Updated_at = time.Now().UTC()
 
 	//validasi data req
 	if req.Title != "" {
@@ -159,9 +135,9 @@ func (t *todoServiceImpl) Update(ctx context.Context, req *model.Todo) (*model.T
 	if req.Priority != "" {
 		existing.Priority = req.Priority
 	}
-	if req.Is_active != existing.Is_active {
-		existing.Is_active = req.Is_active
-	}
+	//if req.Is_active != existing.Is_active {
+	existing.Is_active = req.Is_active
+	//}
 
 	//call func repo to update
 	update, err := t.repo.Update(ctx, tx, existing)

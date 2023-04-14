@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/MCPutro/golang-todo/helper"
 	"github.com/MCPutro/golang-todo/model"
@@ -51,6 +52,11 @@ func (t *todoControllerImpl) GetAll(c *fiber.Ctx) error {
 				return helper.PrintResponse(c, fiber.StatusInternalServerError, "Internal Server Error", fmt.Sprintf("Failed get Activity with ID %s", actId), nil)
 			}
 		}
+
+		if len(todos) == 0 {
+			// return empy slice when list is empty
+			return helper.PrintResponse(c, fiber.StatusOK, "Success", "Success", make([]model.Todo, 0))
+		}
 	}
 
 	// return success
@@ -80,12 +86,26 @@ func (t *todoControllerImpl) GetOne(c *fiber.Ctx) error {
 }
 
 func (t *todoControllerImpl) Create(c *fiber.Ctx) error {
+
+	temp := make(map[string]interface{}, 0)
+	json.Unmarshal(c.Body(), &temp)
+	if temp["activity_group_id"] == nil {
+		return helper.PrintResponse(c, fiber.StatusBadRequest, "Bad Request", "activity_group_id cannot be null", nil)
+	}
+
 	//create temp variable
 	body := new(model.Todo)
 
 	//parse string json to struct
 	if err := c.BodyParser(body); err != nil {
 		return helper.PrintResponse(c, fiber.StatusBadRequest, "Bad Request", "Invalid request body", nil)
+	}
+
+	if body.Title == "" {
+		return helper.PrintResponse(c, fiber.StatusBadRequest, "Bad Request", "title cannot be null", nil)
+	}
+	if temp["is_active"] == nil {
+		body.Is_active = true
 	}
 
 	//call service
@@ -104,7 +124,7 @@ func (t *todoControllerImpl) Create(c *fiber.Ctx) error {
 	}
 
 	//return positive
-	return helper.PrintResponse(c, fiber.StatusOK, "Success", "Success", create)
+	return helper.PrintResponse(c, fiber.StatusCreated, "Success", "Success", create)
 
 }
 
@@ -156,5 +176,5 @@ func (t *todoControllerImpl) Delete(c *fiber.Ctx) error {
 			return helper.PrintResponse(c, fiber.StatusInternalServerError, "Internal Server Error", fmt.Sprintf("Failed delete Todo with ID %s", todoId), nil)
 		}
 	}
-	return helper.PrintResponse(c, fiber.StatusOK, "Success", fmt.Sprintf("Todo with ID %s has been deleted", todoId), nil)
+	return helper.PrintResponse(c, fiber.StatusOK, "Success", "Success", nil)
 }

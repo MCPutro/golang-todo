@@ -26,5 +26,5 @@ type TodoRepository interface {
 	Delete(ctx context.Context, tx *sql.Tx, Id int) error
 
 	// GetPriorityList get list priority
-	GetPriorityList(ctx context.Context, tx *sql.Tx) (map[string]bool, error)
+	//GetPriorityList(ctx context.Context, tx *sql.Tx) (map[string]bool, error)
 }

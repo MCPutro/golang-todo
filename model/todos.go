@@ -8,6 +8,6 @@ type Todo struct {
 	Title             string    `json:"title"`
 	Is_active         bool      `json:"is_active"`
 	Priority          string    `json:"priority"`
-	Created_at        time.Time `json:"createdAt"`
-	Updated_at        time.Time `json:"updatedAt"`
+	Created_at        time.Time `json:"created_at"`
+	Updated_at        time.Time `json:"updated_at"`
 }

@@ -6,7 +6,6 @@ import (
 	"errors"
 	"github.com/MCPutro/golang-todo/helper"
 	"github.com/MCPutro/golang-todo/model"
-	"time"
 )
 
 type activityRepositoryImpl struct {
@@ -20,11 +19,8 @@ func (a *activityRepositoryImpl) Save(ctx context.Context, tx *sql.Tx, NewActivi
 
 	SQL := "INSERT INTO activities (title, email, created_at, updated_at) VALUES (?, ?, ?, ?);"
 
-	createdTime := NewActivity.Created_at.Format(helper.FORMAT_DATE)
-	updatedTime := NewActivity.Updated_at.Format(helper.FORMAT_DATE)
-
 	result, err := tx.ExecContext(ctx, SQL,
-		NewActivity.Title, NewActivity.Email, createdTime, updatedTime)
+		NewActivity.Title, NewActivity.Email, NewActivity.Created_at, NewActivity.Updated_at)
 	if err != nil {
 		return nil, err
 	}
@@ -36,10 +32,6 @@ func (a *activityRepositoryImpl) Save(ctx context.Context, tx *sql.Tx, NewActivi
 
 	//update resp data
 	NewActivity.Activity_id = int(id)
-	createdTime2, _ := time.Parse(helper.FORMAT_DATE, createdTime)
-	NewActivity.Created_at = createdTime2
-	updatedTime2, _ := time.Parse(helper.FORMAT_DATE, updatedTime)
-	NewActivity.Updated_at = updatedTime2
 
 	return NewActivity, nil
 }
@@ -66,6 +58,7 @@ func (a *activityRepositoryImpl) FindAll(ctx context.Context, tx *sql.Tx) ([]*mo
 
 func (a *activityRepositoryImpl) FindByID(ctx context.Context, tx *sql.Tx, Id int) (*model.Activity, error) {
 	SQL := "select a.activity_id, a.title, a.email, a.created_at, a.updated_at from activities a where a.activity_id = ? ;"
+
 	rows, err := tx.QueryContext(ctx, SQL, Id)
 	if err != nil {
 		return nil, err
@@ -90,9 +83,9 @@ func (a *activityRepositoryImpl) FindByID(ctx context.Context, tx *sql.Tx, Id in
 func (a *activityRepositoryImpl) Update(ctx context.Context, tx *sql.Tx, Activity *model.Activity) (*model.Activity, error) {
 	SQL := "UPDATE activities t SET t.title = ?, t.updated_at = ? WHERE t.activity_id = ? ;"
 
-	updatedTime := Activity.Updated_at.Format(helper.FORMAT_DATE)
+	//updatedTime := Activity.Updated_at.Format(helper.FORMAT_DATE)
 
-	result, err := tx.ExecContext(ctx, SQL, Activity.Title, updatedTime, Activity.Activity_id)
+	result, err := tx.ExecContext(ctx, SQL, Activity.Title, Activity.Updated_at, Activity.Activity_id)
 	if err != nil {
 		return nil, err
 	}
@@ -103,8 +96,8 @@ func (a *activityRepositoryImpl) Update(ctx context.Context, tx *sql.Tx, Activit
 		return nil, errors.New(helper.NO_DATA_FOUND)
 	}
 
-	updatedTime2, _ := time.Parse(helper.FORMAT_DATE, updatedTime)
-	Activity.Updated_at = updatedTime2
+	//updatedTime2, _ := time.Parse(helper.FORMAT_DATE, updatedTime)
+	//Activity.Updated_at = updatedTime2
 
 	return Activity, nil
 }
